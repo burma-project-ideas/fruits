@@ -5,7 +5,7 @@
                 Data="@data" TItem="FruitModel">
     <Template Context="item">
         <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
-            <RadzenImage Path="@(item?.Id.ToString() + ".jpg")" Style="width: 100px; height: 100px; border-radius: 50%;" />
+            <RadzenImage Path="@("data/images/"+ item?.Id.ToString() + ".jpg")" Style="width: 100px; height: 100px; border-radius: 50%;" />
             <RadzenStack Gap="0">
                 <RadzenText TextStyle="TextStyle.Body1"><b>@(item.Name)</b></RadzenText>
             </RadzenStack>
