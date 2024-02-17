@@ -14,11 +14,13 @@ namespace BlazorWasm.Fruits.Pages
 
         private IEnumerable<FruitModel> data;
         RadzenDataGrid<FruitModel> grid;
-
+        IEnumerable<string> fruitNames;
+        string value = "select the fruit";
         protected override async Task OnInitializedAsync()
         {
             var response = await HttpClient.GetFromJsonAsync<FruitModel[]>("data/fruits.json");
             data = response.ToList();
+            fruitNames = data.Select(x => x.Name).ToList();
         }
     }
 }
