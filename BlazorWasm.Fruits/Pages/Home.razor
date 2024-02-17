@@ -1,5 +1,9 @@
 ﻿@page "/"
 <PageTitle>Home</PageTitle>
+<div class="rz-p-12 rz-text-align-end">
+    <RadzenLabel Text="Select Value" Component="DropDownDataGridBindValue" Style="margin-right: 8px; vertical-align: middle;" />
+    <RadzenDropDownDataGrid @bind-Value=@value Data=@fruitNames Name="DropDownDataGridBindValue" />
+</div>
 
 <RadzenDataGrid @ref="grid" AllowFiltering="true" AllowPaging="true" PageSize="3" AllowSorting="true" ExpandMode="DataGridExpandMode.Single"
                 Data="@data" TItem="FruitModel">
