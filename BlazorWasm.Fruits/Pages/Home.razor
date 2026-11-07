@@ -1,7 +1,7 @@
 @page "/"
 <PageTitle>Fruit library | Fruits</PageTitle>
 <p class="ui-breadcrumb">Burma Project Ideas <span>/</span> Fruit library</p>
-<header class="ui-heading"><div><h1>A little knowledge. Naturally.</h1><p lang="my">သစ်သီးအမျိုးမျိုးရဲ့ ပုံနဲ့ အချက်အလက်တွေကို လေ့လာကြမယ်။</p></div><a class="ui-button" href="#fruit-library">Explore the library</a></header>
+<header class="ui-heading"><div><span class="pb-label">A small library. A fresh perspective.</span><h1>A little knowledge.<br /><span class="pb-highlight">Naturally.</span></h1><p lang="my">သစ်သီးအမျိုးမျိုးရဲ့ ပုံနဲ့ အချက်အလက်တွေကို လေ့လာကြမယ်။</p></div><a class="ui-button" href="#fruit-library">Explore the library</a></header>
 <section class="fruit-overview" aria-label="Library overview"><div><span class="fruit-stat-label">IN THE LIBRARY</span><strong>@data.Count <small>fruits</small></strong><span lang="my">သစ်သီးအမျိုးအစားများ</span></div><div><span class="fruit-stat-label">A CLOSER LOOK</span><strong>Read. Learn. Explore.</strong><span lang="my">စာရင်းတစ်ခုကို ဖွင့်ပြီး ပုံနဲ့ အကြောင်းအရာကို ကြည့်ပါ။</span></div><div class="fruit-preview" aria-hidden="true"><img src="data/images/2.jpg" alt="" /><img src="data/images/5.jpg" alt="" /><img src="data/images/3.jpg" alt="" /></div></section>
 <section id="fruit-library" class="ui-card fruit-library" aria-labelledby="fruit-library-title">
     <div class="fruit-library-header"><div><h2 id="fruit-library-title">The fruit library <span class="ui-badge">@data.Count fruits</span></h2><p lang="my">သစ်သီးအမည်ကို ရှာပြီး စာရင်းတစ်ခုကို ဖွင့်ကြည့်နိုင်ပါတယ်။</p></div><label class="fruit-search" for="fruit-search">Search fruits<input id="fruit-search" type="search" placeholder="သစ်သီးအမည် ရှာပါ" @bind="SearchTerm" @bind:event="oninput" /></label></div>
