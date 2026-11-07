@@ -1,17 +1,6 @@
-﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
-<RadzenComponents/>
+@inherits LayoutComponentBase
+<a class="ui-skip" href="#main-content">Skip to fruit library</a>
+<header class="ui-header"><div class="ui-header-inner"><a class="ui-brand" href="/"><span class="ui-brand-mark" aria-hidden="true">သ</span>Fruits <span class="fruit-brand-sub">သစ်သီးစာကြည့်တိုက်</span></a><nav aria-label="Main navigation"><a href="#fruit-library" aria-current="page">Fruit library</a><a class="ui-desktop" href="https://github.com/burma-project-ideas/fruits">Source code</a><span class="ui-badge">BPA Learning</span></nav></div></header>
+<main id="main-content" class="ui-main">@Body</main>
+<footer class="ui-footer"><span>Fruits · A browser-based learning project</span><a href="https://github.com/burma-project-ideas">Burma Project Ideas</a></footer>
+<RadzenComponents />

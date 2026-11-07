@@ -1,26 +1,19 @@
-﻿@page "/"
-<PageTitle>Home</PageTitle>
-<div class="rz-p-12 rz-text-align-end">
-    <RadzenLabel Text="Select Value" Component="DropDownDataGridBindValue" Style="margin-right: 8px; vertical-align: middle;" />
-    <RadzenDropDownDataGrid @bind-Value=@value Data=@fruitNames Name="DropDownDataGridBindValue" />
-</div>
-
-<RadzenDataGrid @ref="grid" AllowFiltering="true" AllowPaging="true" PageSize="3" AllowSorting="true" ExpandMode="DataGridExpandMode.Single"
-                Data="@data" TItem="FruitModel">
-    <Template Context="item">
-        <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
-            <RadzenImage Path="@("data/images/"+ item?.Id.ToString() + ".jpg")" Style="width: 100px; height: 100px; border-radius: 50%;" />
-            <RadzenStack Gap="0">
-                <RadzenText TextStyle="TextStyle.Body1"><b>@(item.Name)</b></RadzenText>
-            </RadzenStack>
-        </RadzenStack>
-        <p>
-            @item?.Description
-        </p>
-    </Template>
-    <Columns>
-        <RadzenDataGridColumn TItem="FruitModel" Property="Id" Title="No." Width="120px" />
-        <RadzenDataGridColumn TItem="FruitModel" Property="Name" Title="Name" Width="200px" />
-        <RadzenDataGridColumn TItem="FruitModel" Property="Description" Title="Description" Width="200px" />
-    </Columns>
-</RadzenDataGrid>
+@page "/"
+<PageTitle>Fruit library | Fruits</PageTitle>
+<p class="ui-breadcrumb">Burma Project Ideas <span>/</span> Fruit library</p>
+<header class="ui-heading"><div><h1>A little knowledge. Naturally.</h1><p lang="my">သစ်သီးအမျိုးမျိုးရဲ့ ပုံနဲ့ အချက်အလက်တွေကို လေ့လာကြမယ်။</p></div><a class="ui-button" href="#fruit-library">Explore the library</a></header>
+<section class="fruit-overview" aria-label="Library overview"><div><span class="fruit-stat-label">IN THE LIBRARY</span><strong>@data.Count <small>fruits</small></strong><span lang="my">သစ်သီးအမျိုးအစားများ</span></div><div><span class="fruit-stat-label">A CLOSER LOOK</span><strong>Read. Learn. Explore.</strong><span lang="my">စာရင်းတစ်ခုကို ဖွင့်ပြီး ပုံနဲ့ အကြောင်းအရာကို ကြည့်ပါ။</span></div><div class="fruit-preview" aria-hidden="true"><img src="data/images/2.jpg" alt="" /><img src="data/images/5.jpg" alt="" /><img src="data/images/3.jpg" alt="" /></div></section>
+<section id="fruit-library" class="ui-card fruit-library" aria-labelledby="fruit-library-title">
+    <div class="fruit-library-header"><div><h2 id="fruit-library-title">The fruit library <span class="ui-badge">@data.Count fruits</span></h2><p lang="my">သစ်သီးအမည်ကို ရှာပြီး စာရင်းတစ်ခုကို ဖွင့်ကြည့်နိုင်ပါတယ်။</p></div><label class="fruit-search" for="fruit-search">Search fruits<input id="fruit-search" type="search" placeholder="သစ်သီးအမည် ရှာပါ" @bind="SearchTerm" @bind:event="oninput" /></label></div>
+    @if (IsLoading) { <p class="fruit-message" role="status">Loading the library…</p> }
+    else if (LoadError is not null) { <p class="fruit-message" role="alert">@LoadError</p> }
+    else
+    {
+        <p class="fruit-result-count" role="status">@FilteredData.Count() matching fruits</p>
+        <RadzenDataGrid AllowFiltering="true" AllowPaging="true" PageSize="6" AllowSorting="true" ExpandMode="DataGridExpandMode.Single" Data="@FilteredData" TItem="FruitModel" EmptyText="No fruit found. Try another name.">
+            <Template Context="item"><div class="fruit-detail"><img src="@($"data/images/{item.Id}.jpg")" alt="@item.Name" /><div><span class="fruit-stat-label">FROM THE LIBRARY</span><h3 lang="my">@item.Name</h3><p lang="my">@item.Description</p></div></div></Template>
+            <Columns><RadzenDataGridColumn TItem="FruitModel" Property="Id" Title="No." Width="80px" /><RadzenDataGridColumn TItem="FruitModel" Property="Name" Title="Fruit name" Width="230px" /><RadzenDataGridColumn TItem="FruitModel" Property="Description" Title="About this fruit" /></Columns>
+        </RadzenDataGrid>
+    }
+</section>
+<p class="fruit-source-note">Reference content from the existing catalog. Health-related descriptions have not been medically reviewed.</p>
