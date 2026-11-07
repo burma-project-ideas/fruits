@@ -13,23 +13,23 @@
 
 1. Home မှာ သစ်သီးစာရင်းကို ကြည့်ပါ။
 2. Grid ရဲ့ Filtering နဲ့ Sorting ကို သုံးပြီး လိုချင်တဲ့ အချက်အလက်ကို ရှာပါ။
-3. တစ်မျက်နှာမှာ Records ၃ ခုစီ ပြပြီး Paging နဲ့ ဆက်ကြည့်နိုင်ပါတယ်။
+3. တစ်မျက်နှာမှာ Records ၆ ခုစီ ပြပြီး Paging နဲ့ ဆက်ကြည့်နိုင်ပါတယ်။
 4. Row ကို Expand လုပ်ပြီး သက်ဆိုင်ရာ ဓာတ်ပုံနဲ့ Description ကို ဖတ်ပါ။ တစ်ကြိမ်မှာ Row တစ်ခုကိုပဲ Expand လုပ်ပါတယ်။
 
 ## App ရဲ့ Workflow
 
 1. `Program.cs` က Blazor App နဲ့ HttpClient ကို Register လုပ်ပါတယ်။
 2. `Pages/Home.razor.cs` ရဲ့ `OnInitializedAsync` က `data/fruits.json` ကို `FruitModel[]` အဖြစ် ဖတ်ပါတယ်။
-3. ဖတ်ထားတဲ့ Records ကို `RadzenDataGrid` မှာ Bind လုပ်ပြီး Name စာရင်းကို Dropdown မှာ ပြပါတယ်။
+3. ဖတ်ထားတဲ့ Records ကို `RadzenDataGrid` မှာ Bind လုပ်ပါတယ်။ Search Input က Name ကို Case-insensitive Filter လုပ်ပြီး Matching Count ကို ပြပါတယ်။
 4. Row Detail Template က `data/images/{Id}.jpg` နဲ့ Description ကို ပြပါတယ်။
 
-လက်ရှိ Dropdown က ရွေးထားတဲ့ Value ကိုပဲ Bind လုပ်ထားပြီး Grid Filter နဲ့ မချိတ်ဆက်ထားသေးပါဘူး။ Dropdown ရွေးတာနဲ့ Grid ပြောင်းမယ်လို့ မယူဆပါနဲ့။
+Fruit-name Search၊ Empty Result၊ Loading နဲ့ Data-load Error States ပါဝင်ပါတယ်။ Grid ရဲ့ Column Filtering နဲ့ Sorting ကိုလည်း ဆက်သုံးနိုင်ပါတယ်။
 
 ## Project ဖွဲ့စည်းပုံ
 
 | Path | တာဝန် |
 | --- | --- |
-| `BlazorWasm.Fruits/Pages/Home.razor` | Dropdown၊ Grid နဲ့ Expanded Row Template |
+| `BlazorWasm.Fruits/Pages/Home.razor` | Search၊ Grid နဲ့ Expanded Row Template |
 | `BlazorWasm.Fruits/Pages/Home.razor.cs` | JSON Loading နဲ့ Page State |
 | `BlazorWasm.Fruits/Models/FruitModel.cs` | Id၊ Name၊ Description |
 | `BlazorWasm.Fruits/wwwroot/data/` | JSON Catalog နဲ့ Images |
@@ -67,4 +67,12 @@ Release Build၊ JSON Loading၊ Sorting၊ Filtering၊ Paging နဲ့ Expand
 
 ## ကိုယ်တိုင် ပြန်ရေးကြည့်ချင်ရင်
 
-JSON → Typed Model → Grid → Detail View ဆိုတဲ့ Flow ကို ပြန်ရေးကြည့်ပါ။ Dropdown Filtering ထည့်မယ်ဆိုရင် Selected Value ပြောင်းချိန်မှာ Displayed Records ကို Update လုပ်ဖို့ လိုပါတယ်။ Bug Report၊ Documentation နဲ့ Data Source Credit တွေကို Issue / Pull Request နဲ့ ပံ့ပိုးနိုင်ပါတယ်။
+JSON → Typed Model → Grid → Detail View ဆိုတဲ့ Flow ကို ပြန်ရေးကြည့်ပါ။ Search ရလဒ်၊ Empty State နဲ့ Paging ပြောင်းလဲမှုကို အတူစမ်းပါ။ Bug Report၊ Documentation နဲ့ Data Source Credit တွေကို Issue / Pull Request နဲ့ ပံ့ပိုးနိုင်ပါတယ်။
+
+## UI Design Update
+
+လက်ရှိ Interface က [Untitled UI](https://www.untitledui.com/react/components) ရဲ့ Form၊ Card၊ Table၊ Badge နဲ့ Page Header Visual Patterns ကို **Blazor နဲ့ ပြန်လည်ဖန်တီးထားတာ** ပါ။ React Component Package ကို သုံးထားတာ မဟုတ်ပါဘူး။ White/Gray Surfaces၊ Restrained Purple Accent၊ Visible Focus နဲ့ Responsive Layout ကို အသုံးပြုထားပါတယ်။ မူရင်း App Data၊ Calculation နဲ့ Browser Storage Keys တွေကို ဆက်လက်ထိန်းသိမ်းထားပါတယ်။ Myanmar စာအတွက် Self-hosted Padauk Font ကို သုံးပြီး Font Notice ကို `wwwroot/fonts/OFL-Padauk.txt` မှာ ထိန်းသိမ်းထားပါတယ်။
+
+![Redesigned desktop interface](screenshots/redesign-desktop.jpg)
+
+[Mobile preview](screenshots/redesign-mobile.jpg)
