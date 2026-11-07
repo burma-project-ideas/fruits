@@ -1,6 +1,6 @@
 # Fruits (သစ်သီးအချက်အလက်)
 
-သစ်သီးစာရင်း၊ ဖော်ပြချက်နဲ့ ဓာတ်ပုံတွေကို Table ကနေ ကြည့်နိုင်တဲ့ **.NET 8 Blazor WebAssembly + Radzen Project** ပါ။ [Burma Project Ideas](https://github.com/burma-project-ideas) အောက်မှာ JSON Data ဖတ်ခြင်းနဲ့ Data Grid အသုံးပြုခြင်းကို လေ့လာပြီး ကိုယ်နှစ်သက်တဲ့ Language နဲ့ ပြန်ရေးကြည့်နိုင်ဖို့ ထားပေးထားတာပါ။ လက်ရှိ Repository Metadata မှာ အတည်ပြုထားတဲ့ Live URL မပါသေးပါဘူး။
+သစ်သီးစာရင်း၊ ဖော်ပြချက်နဲ့ ဓာတ်ပုံတွေကို Table ကနေ ကြည့်နိုင်တဲ့ **.NET 8 Blazor WebAssembly + Radzen Project** ပါ။ [Burma Project Ideas](https://github.com/burma-project-ideas) အောက်မှာ JSON Data ဖတ်ခြင်းနဲ့ Data Grid အသုံးပြုခြင်းကို လေ့လာပြီး ကိုယ်နှစ်သက်တဲ့ Language နဲ့ ပြန်ရေးကြည့်နိုင်ဖို့ ထားပေးထားတာပါ။ [Live App ကို ဒီမှာ ဖွင့်နိုင်ပါတယ်](https://burma-fruits.vercel.app/)။
 
 ## အဓိက ပံ့ပိုးသူများနှင့် မူရင်း Data
 
@@ -55,7 +55,7 @@ dotnet build BlazorWasm.Fruits.sln -c Release
 dotnet publish BlazorWasm.Fruits/BlazorWasm.Fruits.csproj -c Release -o artifacts/publish
 ```
 
-Published Files က `artifacts/publish/wwwroot` မှာ ရှိပါတယ်။ Static Host မှာ အဲဒီ Folder ကို Serve လုပ်နိုင်ပါတယ်။ ဒီ Migration မှာ Hosting အသစ် မဖန်တီးထားပါဘူး။
+Published Files က `artifacts/publish/wwwroot` မှာ ရှိပါတယ်။ Static Host မှာ အဲဒီ Folder ကို Serve လုပ်နိုင်ပါတယ်။ Production ကို Vercel မှာ Deploy လုပ်ထားပြီး [Live App](https://burma-fruits.vercel.app/) ကို အသုံးပြုနိုင်ပါတယ်။ .NET Publish ပြီးသား Static Files ကို Vercel Build Output API Format နဲ့ `vercel deploy --prebuilt --prod` သုံးကာ Deploy လုပ်ထားတာပါ။ Published File တွေကို အရင် Serve ပြီး Client-side Routes အတွက် `index.html` Fallback သုံးပါတယ်။ လက်ရှိ Deployment က Manual CLI Deployment ဖြစ်ပြီး Git Push ကနေ Auto-deploy မသတ်မှတ်ထားသေးပါဘူး။
 
 ## Data ကို လေ့လာမယ်
 
