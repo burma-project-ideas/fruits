@@ -1,29 +1,29 @@
 # Fruits (သစ်သီးအချက်အလက်)
 
-သစ်သီးစာရင်း၊ ဖော်ပြချက်နဲ့ ဓာတ်ပုံတွေကို Table ကနေ ကြည့်နိုင်တဲ့ **.NET 8 Blazor WebAssembly + Radzen Project** ပါ။ [Burma Project Ideas](https://github.com/burma-project-ideas) အောက်မှာ JSON Data ဖတ်ခြင်းနဲ့ Data Grid အသုံးပြုခြင်းကို လေ့လာပြီး ကိုယ်နှစ်သက်တဲ့ Language နဲ့ ပြန်ရေးကြည့်နိုင်ဖို့ ထားပေးထားတာပါ။ [Live App ကို ဒီမှာ ဖွင့်နိုင်ပါတယ်](https://burma-fruits.vercel.app/)။
+သစ်သီးစာရင်း၊ ဖော်ပြချက်နဲ့ ဓာတ်ပုံတွေကို Card Catalog ကနေ ကြည့်နိုင်တဲ့ **.NET 8 Blazor WebAssembly + Tailwind CSS Project** ပါ။ [Burma Project Ideas](https://github.com/burma-project-ideas) အောက်မှာ JSON Data ဖတ်ခြင်းနဲ့ Card Layout အသုံးပြုခြင်းကို လေ့လာပြီး ကိုယ်နှစ်သက်တဲ့ Language နဲ့ ပြန်ရေးကြည့်နိုင်ဖို့ ထားပေးထားတာပါ။ [Live App ကို ဒီမှာ ဖွင့်နိုင်ပါတယ်](https://burma-fruits.vercel.app/)။
 
 ## အဓိက ပံ့ပိုးသူများနှင့် မူရင်း Data
 
 - Git Contributors: [Sann Lynn Htun](https://github.com/sannlynnhtun-coding)၊ [Zin Lynn Htet](https://github.com/zinlynhtet)။ Git Contribution က မူရင်း Content ရေးသားသူဖြစ်ကြောင်း အလိုအလျောက် မဆိုလိုပါဘူး။
 - Data: `BlazorWasm.Fruits/wwwroot/data/fruits.json`။
 - Images: `BlazorWasm.Fruits/wwwroot/data/images/`။ မူရင်း Data/ဓာတ်ပုံရေးသားသူနဲ့ ဖြန့်ဝေခွင့်ကို Repository မှာ မသတ်မှတ်ထားသေးပါဘူး။
-- UI Library: Radzen.Blazor။ မူရင်း Data နဲ့ Contributor Credit ကို ဆက်လက်ထိန်းသိမ်းပါ။
+- UI: Tailwind CSS + Native Blazor။ မူရင်း Data နဲ့ Contributor Credit ကို ဆက်လက်ထိန်းသိမ်းပါ။
 
 ## အသုံးပြုပုံ
 
 1. Home မှာ သစ်သီးစာရင်းကို ကြည့်ပါ။
-2. Grid ရဲ့ Filtering နဲ့ Sorting ကို သုံးပြီး လိုချင်တဲ့ အချက်အလက်ကို ရှာပါ။
-3. တစ်မျက်နှာမှာ Records ၆ ခုစီ ပြပြီး Paging နဲ့ ဆက်ကြည့်နိုင်ပါတယ်။
+2. Search မှာ သစ်သီးအမည် ရိုက်ရှာပါ။
+3. Card မှာ Read about this fruit ကို ဖွင့်ပြီး ဖော်ပြချက်ကို ဖတ်ပါ။
 4. Row ကို Expand လုပ်ပြီး သက်ဆိုင်ရာ ဓာတ်ပုံနဲ့ Description ကို ဖတ်ပါ။ တစ်ကြိမ်မှာ Row တစ်ခုကိုပဲ Expand လုပ်ပါတယ်။
 
 ## App ရဲ့ Workflow
 
 1. `Program.cs` က Blazor App နဲ့ HttpClient ကို Register လုပ်ပါတယ်။
 2. `Pages/Home.razor.cs` ရဲ့ `OnInitializedAsync` က `data/fruits.json` ကို `FruitModel[]` အဖြစ် ဖတ်ပါတယ်။
-3. ဖတ်ထားတဲ့ Records ကို `RadzenDataGrid` မှာ Bind လုပ်ပါတယ်။ Search Input က Name ကို Case-insensitive Filter လုပ်ပြီး Matching Count ကို ပြပါတယ်။
+3. ဖတ်ထားတဲ့ Records ကို Native Blazor Card Layout မှာ Bind လုပ်ပါတယ်။ Search Input က Name ကို Case-insensitive Filter လုပ်ပြီး Matching Count ကို ပြပါတယ်။
 4. Row Detail Template က `data/images/{Id}.jpg` နဲ့ Description ကို ပြပါတယ်။
 
-Fruit-name Search၊ Empty Result၊ Loading နဲ့ Data-load Error States ပါဝင်ပါတယ်။ Grid ရဲ့ Column Filtering နဲ့ Sorting ကိုလည်း ဆက်သုံးနိုင်ပါတယ်။
+Fruit-name Search၊ Empty Result၊ Loading နဲ့ Data-load Error States ပါဝင်ပါတယ်။
 
 ## Project ဖွဲ့စည်းပုံ
 
@@ -67,7 +67,7 @@ Release Build၊ JSON Loading၊ Search နဲ့ Expand လုပ်တဲ့�
 
 ## ကိုယ်တိုင် ပြန်ရေးကြည့်ချင်ရင်
 
-JSON → Typed Model → Grid → Detail View ဆိုတဲ့ Flow ကို ပြန်ရေးကြည့်ပါ။ Search ရလဒ်၊ Empty State နဲ့ Paging ပြောင်းလဲမှုကို အတူစမ်းပါ။ Bug Report၊ Documentation နဲ့ Data Source Credit တွေကို Issue / Pull Request နဲ့ ပံ့ပိုးနိုင်ပါတယ်။
+JSON → Typed Model → Cards → Detail View ဆိုတဲ့ Flow ကို ပြန်ရေးကြည့်ပါ။ Search ရလဒ်၊ Empty State နဲ့ Details ပြောင်းလဲမှုကို အတူစမ်းပါ။ Bug Report၊ Documentation နဲ့ Data Source Credit တွေကို Issue / Pull Request နဲ့ ပံ့ပိုးနိုင်ပါတယ်။
 
 ## UI Design Update
 
