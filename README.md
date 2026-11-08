@@ -63,13 +63,15 @@ JSON ထဲက `Id` နဲ့ Image File အမည်ကို တွဲသု�
 
 ## စစ်ဆေးမယ်
 
-Release Build၊ JSON Loading၊ Sorting၊ Filtering၊ Paging နဲ့ Expand လုပ်တဲ့အခါ Image/Description မှန်ကန်မှုကို စမ်းပါ။ လက်ရှိ Repo မှာ Automated Test Project မပါသေးပါဘူး။
+Release Build၊ JSON Loading၊ Search နဲ့ Expand လုပ်တဲ့အခါ Image/Description မှန်ကန်မှုကို စမ်းပါ။ လက်ရှိ Repo မှာ Automated Test Project မပါသေးပါဘူး။
 
 ## ကိုယ်တိုင် ပြန်ရေးကြည့်ချင်ရင်
 
 JSON → Typed Model → Grid → Detail View ဆိုတဲ့ Flow ကို ပြန်ရေးကြည့်ပါ။ Search ရလဒ်၊ Empty State နဲ့ Paging ပြောင်းလဲမှုကို အတူစမ်းပါ။ Bug Report၊ Documentation နဲ့ Data Source Credit တွေကို Issue / Pull Request နဲ့ ပံ့ပိုးနိုင်ပါတယ်။
 
 ## UI Design Update
+
+The fruit catalog uses a responsive Tailwind CSS card layout with native expandable details and instant name search. Radzen and Bootstrap are no longer used. Rebuild the checked-in stylesheet with `npm ci && npm run build:css` after changing utility classes.
 
 The current interface follows [PrebuiltUI](https://prebuiltui.com/)'s visual direction: spacious white surfaces, subtle grid backgrounds, gradient headings, rounded cards, and pill controls. These patterns are implemented with CSS and native Blazor components; no React migration or new UI dependency is required. The earlier shared Blazor foundation remains in place.
 

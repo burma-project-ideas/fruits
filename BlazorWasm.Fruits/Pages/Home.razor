@@ -1,19 +1,16 @@
 @page "/"
 <PageTitle>Fruit library | Fruits</PageTitle>
-<p class="ui-breadcrumb">Burma Project Ideas <span>/</span> Fruit library</p>
-<header class="ui-heading"><div><span class="pb-label">A small library. A fresh perspective.</span><h1>A little knowledge.<br /><span class="pb-highlight">Naturally.</span></h1><p lang="my">သစ်သီးအမျိုးမျိုးရဲ့ ပုံနဲ့ အချက်အလက်တွေကို လေ့လာကြမယ်။</p></div><a class="ui-button" href="#fruit-library">Explore the library</a></header>
-<section class="fruit-overview" aria-label="Library overview"><div><span class="fruit-stat-label">IN THE LIBRARY</span><strong>@data.Count <small>fruits</small></strong><span lang="my">သစ်သီးအမျိုးအစားများ</span></div><div><span class="fruit-stat-label">A CLOSER LOOK</span><strong>Read. Learn. Explore.</strong><span lang="my">စာရင်းတစ်ခုကို ဖွင့်ပြီး ပုံနဲ့ အကြောင်းအရာကို ကြည့်ပါ။</span></div><div class="fruit-preview" aria-hidden="true"><img src="data/images/2.jpg" alt="" /><img src="data/images/5.jpg" alt="" /><img src="data/images/3.jpg" alt="" /></div></section>
-<section id="fruit-library" class="ui-card fruit-library" aria-labelledby="fruit-library-title">
-    <div class="fruit-library-header"><div><h2 id="fruit-library-title">The fruit library <span class="ui-badge">@data.Count fruits</span></h2><p lang="my">သစ်သီးအမည်ကို ရှာပြီး စာရင်းတစ်ခုကို ဖွင့်ကြည့်နိုင်ပါတယ်။</p></div><label class="fruit-search" for="fruit-search">Search fruits<input id="fruit-search" type="search" placeholder="သစ်သီးအမည် ရှာပါ" @bind="SearchTerm" @bind:event="oninput" /></label></div>
-    @if (IsLoading) { <p class="fruit-message" role="status">Loading the library…</p> }
-    else if (LoadError is not null) { <p class="fruit-message" role="alert">@LoadError</p> }
-    else
-    {
-        <p class="fruit-result-count" role="status">@FilteredData.Count() matching fruits</p>
-        <RadzenDataGrid AllowFiltering="true" AllowPaging="true" PageSize="6" AllowSorting="true" ExpandMode="DataGridExpandMode.Single" Data="@FilteredData" TItem="FruitModel" EmptyText="No fruit found. Try another name.">
-            <Template Context="item"><div class="fruit-detail"><img src="@($"data/images/{item.Id}.jpg")" alt="@item.Name" /><div><span class="fruit-stat-label">FROM THE LIBRARY</span><h3 lang="my">@item.Name</h3><p lang="my">@item.Description</p></div></div></Template>
-            <Columns><RadzenDataGridColumn TItem="FruitModel" Property="Id" Title="No." Width="80px" /><RadzenDataGridColumn TItem="FruitModel" Property="Name" Title="Fruit name" Width="230px" /><RadzenDataGridColumn TItem="FruitModel" Property="Description" Title="About this fruit" /></Columns>
-        </RadzenDataGrid>
-    }
-</section>
-<p class="fruit-source-note">Reference content from the existing catalog. Health-related descriptions have not been medically reviewed.</p>
+<header class="py-16 md:py-24 max-w-3xl"><p class="text-sm font-semibold text-emerald-700 mb-5">THE FRUIT LIBRARY · BURMA PROJECT IDEAS</p><h1 class="text-5xl md:text-7xl font-semibold tracking-tight leading-tight">Good things<br />grow naturally.</h1><p class="mt-6 text-lg text-stone-600" lang="my">သစ်သီးအမျိုးမျိုးရဲ့ ပုံနဲ့ အချက်အလက်တွေကို လေ့လာကြမယ်။</p></header>
+<section id="fruit-library" aria-labelledby="library-title">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-200 pb-8"><div><h2 id="library-title" class="text-2xl font-semibold">Explore the harvest</h2><p class="text-stone-500 mt-2" role="status">@FilteredData.Count() fruits to discover</p></div><label class="text-sm font-medium">Search fruits<input type="search" class="block mt-2 rounded-full border border-stone-300 bg-white px-5 py-3 w-full md:w-80 focus:outline-emerald-700" placeholder="သစ်သီးအမည် ရှာပါ" @bind="SearchTerm" @bind:event="oninput" /></label></div>
+@if(IsLoading){<p role="status" class="py-12">Loading the library…</p>}
+else if(LoadError is not null){<p role="alert" class="py-12">@LoadError</p>}
+else if(!FilteredData.Any()){<p class="py-12">No fruit found. Try another name.</p>}
+else {
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
+@foreach(var item in FilteredData){
+<article @key="item.Id" class="rounded-3xl border border-stone-200 bg-white overflow-hidden"><div class="aspect-square bg-stone-100 p-8"><img class="w-full h-full object-contain rounded-2xl" src="@($"data/images/{item.Id}.jpg")" alt="@item.Name" loading="lazy" /></div><div class="p-6"><p class="text-xs tracking-widest text-emerald-700 mb-3">FRUIT / @item.Id.ToString("D2")</p><h3 class="text-2xl font-semibold leading-loose" lang="my">@item.Name</h3><details class="mt-4 group"><summary class="cursor-pointer text-sm font-medium text-emerald-800 py-2">Read about this fruit</summary><p class="mt-4 text-stone-600 leading-loose" lang="my">@item.Description</p></details></div></article>
+}
+</div>
+}
+</section><p class="text-xs text-stone-500 py-8">Reference content from the existing catalog. Health-related descriptions have not been medically reviewed.</p>

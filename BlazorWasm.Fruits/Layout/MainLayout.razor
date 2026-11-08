@@ -1,6 +1,5 @@
 @inherits LayoutComponentBase
-<a class="ui-skip" href="#main-content">Skip to fruit library</a>
-<header class="ui-header"><div class="ui-header-inner"><a class="ui-brand" href="/"><span class="ui-brand-mark" aria-hidden="true">သ</span>Fruits <span class="fruit-brand-sub">သစ်သီးစာကြည့်တိုက်</span></a><nav aria-label="Main navigation"><a href="#fruit-library" aria-current="page">Fruit library</a><a class="ui-desktop" href="https://github.com/burma-project-ideas/fruits">Source code</a><span class="ui-badge">BPA Learning</span></nav></div></header>
-<main id="main-content" class="ui-main">@Body</main>
-<footer class="ui-footer"><span>Fruits · A browser-based learning project</span><a href="https://github.com/burma-project-ideas">Burma Project Ideas</a></footer>
-<RadzenComponents />
+<a class="sr-only focus:not-sr-only" href="#main-content">Skip to fruit library</a>
+<header class="border-b border-stone-200"><nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between"><a href="/" class="text-xl font-bold tracking-tight">Fruits<span class="text-emerald-700">.</span></a><a href="#fruit-library" class="text-sm border border-stone-300 rounded-full px-5 py-2">Explore library ↗</a></nav></header>
+<main id="main-content" class="max-w-7xl mx-auto px-6">@Body</main>
+<footer class="max-w-7xl mx-auto px-6 py-10 border-t border-stone-200 flex flex-wrap justify-between gap-4 text-sm text-stone-500"><span>A little knowledge. Naturally.</span><a href="https://github.com/burma-project-ideas/fruits">Burma Project Ideas ↗</a></footer>

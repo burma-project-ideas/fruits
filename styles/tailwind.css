@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face{font-family:Padauk;src:url(../fonts/Padauk-Myanmar-Regular.woff2) format("woff2");font-display:swap}body{font-family:Padauk,system-ui,sans-serif;background:#fafaf9;color:#1c1917}summary:focus-visible,a:focus-visible{outline:2px solid #047857;outline-offset:4px}
+
+a{color:inherit}
