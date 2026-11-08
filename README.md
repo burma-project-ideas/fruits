@@ -1,3 +1,5 @@
+![Project logo](BlazorWasm.Fruits/wwwroot/branding/icon-192.png)
+
 # Fruits (သစ်သီးအချက်အလက်)
 
 သစ်သီးစာရင်း၊ ဖော်ပြချက်နဲ့ ဓာတ်ပုံတွေကို Card Catalog ကနေ ကြည့်နိုင်တဲ့ **.NET 8 Blazor WebAssembly + Tailwind CSS Project** ပါ။ [Burma Project Ideas](https://github.com/burma-project-ideas) အောက်မှာ JSON Data ဖတ်ခြင်းနဲ့ Card Layout အသုံးပြုခြင်းကို လေ့လာပြီး ကိုယ်နှစ်သက်တဲ့ Language နဲ့ ပြန်ရေးကြည့်နိုင်ဖို့ ထားပေးထားတာပါ။ [Live App ကို ဒီမှာ ဖွင့်နိုင်ပါတယ်](https://burma-fruits.vercel.app/)။
@@ -80,3 +82,7 @@ After changing styles or utility classes, run `npm ci` and `npm run build:css` b
 ![Bencho-inspired desktop interface](screenshots/redesign-desktop.jpg)
 
 [Mobile preview](screenshots/redesign-mobile.jpg)
+
+## Brand assets
+
+The original monochrome mark matches the dark interface. Transparent SVG/PNG masters, a dark-on-light variant, favicon sizes (16/32/48), Apple touch icon (180), app icons (192/512), and a 1200×630 social image are generated from `wwwroot/branding/logo-master.svg`. Run `npm ci && npm run build:brand` to regenerate them. Existing font and data licenses remain unchanged.
